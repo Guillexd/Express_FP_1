@@ -1,17 +1,17 @@
 {{#if products.payload}}
-<i id="shopping__car" class="fa-solid fa-cart-shopping"></i>
+
 <h1 class="text-center">Products</h1>
 
-<div class="dropdown align-self-end me-5">
+{{!-- <div class="dropdown align-self-end me-5">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
+    Filter
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
+    <li><a class="dropdown-item" href="#">Order</a></li>
+    <li><a class="dropdown-item" href="#">Category</a></li>
+    <li><a class="dropdown-item" href="#">Status</a></li>
   </ul>
-</div>
+</div> --}}
 
 <nav aria-label="Page navigation example">
   <ul class="pagination">
@@ -42,7 +42,11 @@
       <span class="card-text">{{des}}</span>
       <span class="card-text">${{price}}</span>
       <span class="card-text">Category: {{category}}</span>
-      <a href="#" class="btn btn-primary product_to_cart_button" data-id='{{_id}}'>Add to Cart</a>
+      {{#if status}}
+        <a href="#" class="btn btn-primary product_to_cart_button" data-id='{{_id}}'>Add to Cart</a>
+        {{else}}
+        <a href="#" class="btn btn-primary product_to_cart_button disabled" data-id='{{_id}}'>Add to Cart</a>
+      {{/if}}
     </div>
   </section>
   {{/each}}

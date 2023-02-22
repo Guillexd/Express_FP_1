@@ -22,3 +22,7 @@ body{
 #shopping__car:hover{
     transform: scale(1.1);
 }
+
+.product_to_cart_button:focus{
+    background-color: gray !important;
+}
