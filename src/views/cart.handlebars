@@ -1,0 +1,26 @@
+{{#if cart}}
+<div class="container">
+  <h1 class="text-center">Cart</h1>
+  <p>Fecha: {{cart.time}}</p>
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each cart.products}}
+    <tr>
+      <th scope="row">{{_id.title}}</th>
+      <td>{{_id.des}}</td>
+      <td>${{_id.price}}</td>
+      <td>{{_id.category}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+</div>
+{{/if}}

@@ -17,7 +17,6 @@ export default class CartManager {
       //   path: 'products._id', 
       //   model: 'Products'
       // });
-      console.log(product);
       return product;
     } catch (err) {
       console.log('getCartById: ' + err);

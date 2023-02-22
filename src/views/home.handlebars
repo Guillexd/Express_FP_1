@@ -1,26 +1,50 @@
 {{#if products.payload}}
-  <h1 class="text-center">Products</h1>
-  <button type="button" class="btn btn-warning">{{products.page}}</button>
-  <div class="btn-group" role="group" aria-label="Basic example">
+<i id="shopping__car" class="fa-solid fa-cart-shopping"></i>
+<h1 class="text-center">Products</h1>
+
+<div class="dropdown align-self-end me-5">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Another action</a></li>
+    <li><a class="dropdown-item" href="#">Something else here</a></li>
+  </ul>
+</div>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
     {{#if products.prevLink}}
-    <a href={{products.prevLink}}><button type="button" class="btn btn-secondary">Prev</button></a>
+    <li class="page-item">
+      <a class="page-link" href='{{products.prevLink}}' aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
     {{/if}}
+    <li class="page-item"><a class="page-link" href="#">{{products.page}}</a></li>
     {{#if products.nextLink}}
-    <a href={{products.nextLink}}><button type="button" class="btn btn-primary">Next</button></a>
+    <li class="page-item">
+      <a class="page-link" href='{{products.nextLink}}' aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
     {{/if}}
-  </div>
-  <div class="container mt-5 d-flex flex-wrap gap-2 justify-content-center">
+  </ul>
+</nav>
+
+<div class="container mt-5 d-flex flex-wrap gap-2 justify-content-center">
   {{#each products.payload}}
-    <section class="card" style="width: 18rem;">
-      <img src={{thumbnail}} class="card-img-top" alt="...">
-      <div class="card-body d-flex flex-column">
-        <h5 class="card-title">{{title}}</h5>
-        <span class="card-text">{{des}}</span>
-        <span class="card-text">${{price}}</span>
-        <span class="card-text">Category: {{category}}</span>
-        <a href="#" class="btn btn-primary">Add to Cart</a>
-      </div>
-    </section>
+  <section class="card" style="width: 18rem;">
+    <a href="/api/products/{{_id}}"><img src='{{thumbnail}}' class="card-img-top" alt='{{title}}'></a>
+    <div class="card-body d-flex flex-column">
+      <h5 class="card-title">{{title}}</h5>
+      <span class="card-text">{{des}}</span>
+      <span class="card-text">${{price}}</span>
+      <span class="card-text">Category: {{category}}</span>
+      <a href="#" class="btn btn-primary product_to_cart_button" data-id='{{_id}}'>Add to Cart</a>
+    </div>
+  </section>
   {{/each}}
-  </div>
+</div>
 {{/if}}

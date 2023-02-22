@@ -18,7 +18,11 @@ router.get('/:cartId', async (req, res) => {
   const {cartId} = req.params;
   const cart = await cartManager.getCartById(cartId);
   if (cart) {
-    res.json({ cart });
+    // res.json({ cart });
+    res.render('cart', {
+      title: 'Cart',
+      cart
+    })
   } else {
     res.json({ error: 'Error in get carts' });
   }

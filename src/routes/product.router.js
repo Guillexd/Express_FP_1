@@ -12,6 +12,7 @@ router.get('/', async(req, res) => {
   if (products) {
     // res.json({ products });
     res.render('home', {
+      title: 'Products',
       products
     })
   } else {
@@ -19,11 +20,15 @@ router.get('/', async(req, res) => {
   }
 })
 
-router.get('/prodId', async(req, res) => {
+router.get('/:prodId', async(req, res) => {
   const {prodId} = req.params;
-  const product = getProductById(prodId);
+  const product = await productManager.getProductById(prodId);
   if (product) {
-    res.json({ product });
+    // res.json({ product });
+    res.render('product', {
+      title: 'Product',
+      product
+    })
   } else {
     res.json({ error: 'Error in get product by Id' });
   }
