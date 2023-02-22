@@ -1,0 +1,26 @@
+{{#if products.payload}}
+  <h1 class="text-center">Products</h1>
+  <button type="button" class="btn btn-warning">{{products.page}}</button>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    {{#if products.prevLink}}
+    <a href={{products.prevLink}}><button type="button" class="btn btn-secondary">Prev</button></a>
+    {{/if}}
+    {{#if products.nextLink}}
+    <a href={{products.nextLink}}><button type="button" class="btn btn-primary">Next</button></a>
+    {{/if}}
+  </div>
+  <div class="container mt-5 d-flex flex-wrap gap-2 justify-content-center">
+  {{#each products.payload}}
+    <section class="card" style="width: 18rem;">
+      <img src={{thumbnail}} class="card-img-top" alt="...">
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{title}}</h5>
+        <span class="card-text">{{des}}</span>
+        <span class="card-text">${{price}}</span>
+        <span class="card-text">Category: {{category}}</span>
+        <a href="#" class="btn btn-primary">Add to Cart</a>
+      </div>
+    </section>
+  {{/each}}
+  </div>
+{{/if}}
