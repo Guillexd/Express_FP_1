@@ -1,6 +1,9 @@
+<div id="buttons__shop">
+  <button class="btn btn-primary d-inline-block text-left" onclick="location.href='/user/logout'">logout</button>
+</div>
 {{#if cart}}
 <div class="container">
-  <h1 class="text-center">Cart</h1>
+  <h1 class="text-center">Cart {{admin}}</h1>
   <p>Fecha: {{cart.time}}</p>
   <table class="table">
   <thead>

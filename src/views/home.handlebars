@@ -1,6 +1,10 @@
+<div id="buttons__shop">
+  <button class="btn btn-primary d-inline-block text-left" onclick="location.href='/user/logout'">logout</button>
+  <i id="shopping__car" class="fa-solid fa-cart-shopping mt-3"></i>
+</div>
 {{#if products.payload}}
 
-<h1 class="text-center">Products</h1>
+<h1 class="text-center">Products {{admin}}</h1>
 
 {{!-- <div class="dropdown align-self-end me-5">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

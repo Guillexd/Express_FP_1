@@ -14,9 +14,17 @@ body{
 #shopping__car{
     color: white;
     font-size: 2rem;
-    position: absolute;
     right: 3rem;
     cursor: pointer;
+}
+
+#buttons__shop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    margin-right: 5rem;
 }
 
 #shopping__car:hover{

@@ -1,26 +1,28 @@
 import { Router } from "express";
+import { isLogged } from "../middleware/login.middleware.js";
 import CartManager from "../persistencia/daos/cart.manager.js";
 
 const cartManager = new CartManager();
 
 const router = Router();
 
-router.get('/', async (req, res) => {
+router.get('/', isLogged, async (req, res) => {
   const cart = await cartManager.getCarts();
-  if (cart) {
+  if (cart && req.session.isAdmin) {
     res.json({ cart });
   } else {
     res.json({ error: 'Error in get carts' });
   }
 })
 
-router.get('/:cartId', async (req, res) => {
+router.get('/:cartId', isLogged, async (req, res) => {
   const {cartId} = req.params;
   const cart = await cartManager.getCartById(cartId);
   if (cart) {
     // res.json({ cart });
     res.render('cart', {
       title: 'Cart',
+      admin: req.session.isAdmin ? 'You are admin' : null,
       cart
     })
   } else {
