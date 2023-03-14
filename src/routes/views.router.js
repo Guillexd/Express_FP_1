@@ -11,12 +11,9 @@ router.get("/register", isntLogged, (req, res) => {
   res.render("register", { title: "Register" });
 });
 
-// router.get("/profile", isLogged, (req, res) => {
-//   res.render("home", {
-//     title: "Profile",
-//     admin: req.session.isAdmin ? "Eres admin" : "No eres admin",
-//   });
-// });
+router.get("/change-password", isntLogged, (req, res) => {
+  res.render("changePassword", { title: "Change-Password" });
+});
 
 router.get("/error-login", isntLogged, (req, res) => {
   res.render("errorLogin", { title: "Error-Login" });

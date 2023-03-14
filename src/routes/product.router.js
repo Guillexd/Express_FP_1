@@ -14,6 +14,7 @@ router.get('/', isLogged, async(req, res) => {
     // res.json({ products });
     res.render('home', {
       title: 'Products',
+      email: req.session.email,
       admin: req.session.isAdmin ? 'You are admin' : null,
       products
     })

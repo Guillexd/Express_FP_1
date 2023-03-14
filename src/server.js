@@ -5,6 +5,7 @@ import cartRouter from './routes/cart.router.js';
 import userRouter from './routes/user.router.js';
 import viewsRouter from './routes/views.router.js';
 import './persistencia/dbConfig.js';
+import './passport/passportStrategies.js';
 
 //session
 import cookieParser from "cookie-parser";
